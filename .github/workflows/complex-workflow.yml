@@ -30,9 +30,8 @@ jobs:
     - name: step2
       run: echo `date`
 
-      needs: [j1, j2, j3]
-
   j4:
+    needs: [j1, j2, j3]
     name: jobFour
     runs-on: ubuntu-latest
     steps:
