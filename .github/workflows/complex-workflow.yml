@@ -1,0 +1,42 @@
+name: complexWorkflow
+on: push
+
+jobs:
+  j1:
+    name: jobOne
+    runs-on: ubuntu-latest
+    steps:
+    - name: step1
+      uses: actions/checkout@v2
+    - name: step2
+      run: echo `date`
+
+  j2:
+    name: jobTwo
+    runs-on: windows-latest
+    steps:
+    - name: step1
+      uses: actions/checkout@v2
+    - name: step2
+      run: Get-Date
+
+  j3:
+    name: jobThree
+    runs-on: macos-latest
+    steps:
+    - name: step1
+      uses: actions/checkout@v2
+    - name: step2
+      run: echo `date`
+
+    needs: [j1, j2, j3]
+
+  j4:
+    name: jobFour
+    runs-on: ubuntu-latest
+    steps:
+    - name: step1
+      uses: actions/checkout@v2
+    - name: step2
+      run: echo `date`
+  
